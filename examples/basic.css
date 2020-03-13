@@ -1,0 +1,148 @@
+.rmc-tabs-tab-bar {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  z-index: 1;
+}
+.rmc-tabs-tab-bar-tab {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  line-height: 14px;
+  background: #fff;
+}
+.rmc-tabs-tab-bar-tab-active {
+  color: #108ee9;
+}
+.rmc-tabs-tab-bar-underline {
+  position: absolute;
+  border: 1px #108ee9 solid;
+}
+.rmc-tabs-tab-bar-animated .rmc-tabs-tab-bar-content {
+  transition: transform 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+  will-change: transform;
+}
+.rmc-tabs-tab-bar-animated .rmc-tabs-tab-bar-underline {
+  transition: top 0.3s cubic-bezier(0.35, 0, 0.25, 1), left 0.3s cubic-bezier(0.35, 0, 0.25, 1), color 0.3s cubic-bezier(0.35, 0, 0.25, 1), width 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+  will-change: top, left, width, color;
+}
+.rmc-tabs-tab-bar-top,
+.rmc-tabs-tab-bar-bottom {
+  flex-direction: row;
+}
+.rmc-tabs-tab-bar-top .rmc-tabs-tab-bar-content,
+.rmc-tabs-tab-bar-bottom .rmc-tabs-tab-bar-content {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+.rmc-tabs-tab-bar-top .rmc-tabs-tab-bar-tab,
+.rmc-tabs-tab-bar-bottom .rmc-tabs-tab-bar-tab {
+  padding: 8px 0;
+}
+.rmc-tabs-tab-bar-top .rmc-tabs-tab-bar-underline,
+.rmc-tabs-tab-bar-bottom .rmc-tabs-tab-bar-underline {
+  bottom: 0;
+}
+.rmc-tabs-tab-bar-top {
+  border-bottom: 1px #eee solid;
+}
+.rmc-tabs-tab-bar-bottom {
+  border-top: 1px #eee solid;
+}
+.rmc-tabs-tab-bar-left,
+.rmc-tabs-tab-bar-right {
+  flex-direction: column;
+}
+.rmc-tabs-tab-bar-left .rmc-tabs-tab-bar-content,
+.rmc-tabs-tab-bar-right .rmc-tabs-tab-bar-content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+.rmc-tabs-tab-bar-left .rmc-tabs-tab-bar-tab,
+.rmc-tabs-tab-bar-right .rmc-tabs-tab-bar-tab {
+  padding: 0 8px;
+}
+.rmc-tabs-tab-bar-left {
+  border-right: 1px #eee solid;
+}
+.rmc-tabs-tab-bar-left .rmc-tabs-tab-bar-underline {
+  right: 0;
+}
+.rmc-tabs-tab-bar-right {
+  border-left: 1px #eee solid;
+}
+.rmc-tabs-tab-bar-right .rmc-tabs-tab-bar-underline {
+  left: 0;
+}
+.rmc-tabs {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+.rmc-tabs * {
+  box-sizing: border-box;
+}
+.rmc-tabs-content-wrap {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+}
+.rmc-tabs-content-wrap-animated {
+  transition: transform 0.3s cubic-bezier(0.35, 0, 0.25, 1), left 0.3s cubic-bezier(0.35, 0, 0.25, 1), top 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+  will-change: transform, left, top;
+}
+.rmc-tabs-content {
+  width: 100%;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+.rmc-tabs-tab-bar-wrap {
+  flex-shrink: 0;
+}
+.rmc-tabs-horizontal .rmc-tabs-content-active {
+  height: auto;
+}
+.rmc-tabs-horizontal .rmc-tabs-content-inactive {
+  height: 0;
+  overflow: visible;
+}
+.rmc-tabs-vertical .rmc-tabs-content-wrap {
+  flex-direction: column;
+}
+.rmc-tabs-vertical .rmc-tabs-tab-bar-wrap {
+  height: 100%;
+}
+.rmc-tabs-vertical .rmc-tabs-content {
+  height: 100%;
+}
+.rmc-tabs-vertical .rmc-tabs-content-active {
+  overflow: auto;
+}
+.rmc-tabs-vertical .rmc-tabs-content-inactive {
+  overflow: hidden;
+}
+.rmc-tabs-top,
+.rmc-tabs-bottom {
+  flex-direction: column;
+}
+.rmc-tabs-left,
+.rmc-tabs-right {
+  flex-direction: row;
+}
+
+
+/*# sourceMappingURL=basic.css.map*/

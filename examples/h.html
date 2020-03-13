@@ -1,0 +1,137 @@
+<style>
+  .fm-tabs {
+    box-sizing: border-box;
+    display: flex;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+  }
+  .fm-tabs-bottom,
+  .fm-tabs-top {
+    flex-direction: column;
+  }
+
+  .fm-tabs-content,
+  .fm-tabs-tab-bar-wrap {
+    flex-shrink: 0;
+  }
+
+  .fm-tabs-bar,
+  .fm-tabs-bar-tab {
+    position: relative;
+    display: flex;
+    flex-shrink: 0;
+    width: 100%;
+    overflow: visible;
+    z-index: 1;
+  }
+
+  .fm-tabs-bar-bottom,
+  .fm-tabs-bar-top {
+    flex-direction: row;
+  }
+
+  .fm-tabs-bar-bottom .fm-tabs-bar-content,
+  .fm-tabs-bar-top .fm-tabs-bar-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  @media (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 2dppx) html:not([data-scale]) .fm-tabs-bar-top .fm-tabs-bar-tab {
+    border-bottom: none;
+  }
+
+  .fm-tabs-bar-top .fm-tabs-bar-tab {
+    border-bottom: 1px solid #ddd;
+  }
+
+  .fm-tabs-bar-bottom .fm-tabs-bar-tab,
+  .fm-tabs-bar-top .fm-tabs-bar-tab {
+    padding: 8px 0;
+  }
+
+  .fm-tabs-bar-tab {
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    height: 43.5px;
+    line-height: 43.5px;
+  }
+
+  .fm-tabs-bar-tab-active {
+    color: #108ee9;
+  }
+
+  .fm-tabs-bar-bottom .fm-tabs-bar-underline,
+  .fm-tabs-bar-top .fm-tabs-bar-underline {
+    bottom: 0;
+    position: absolute;
+    border: 1px solid #108ee9;
+    transform: translateZ(0);
+  }
+
+  .fm-tabs-content-wrap {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .fm-tabs-content {
+    width: 100%;
+    overflow-y: auto;
+  }
+
+  .fm-tabs-horizontal .fm-tabs-content-inactive {
+    height: 0;
+    overflow: visible;
+  }
+
+  .fm-tabs-horizontal .fm-tabs-content-active {
+    height: auto;
+  }
+</style>
+
+<div class="fm-tabs fm-tabs-horizontal fm-tabs-top">
+  <div class="fm-tabs-tab-bar-wrap">
+    <div class="fm-tabs-bar fm-tabs-bar-animated fm-tabs-bar-top">
+      <div class="fm-tabs-bar-content">
+        <div class="fm-tabs-bar-tab" style="width: 33%;">
+          tab1
+        </div>
+        <div class="fm-tabs-bar-tab" style="width: 33%;">
+          tab2
+        </div>
+        <div class="fm-tabs-bar-tab fm-tabs-bar-tab-active" style="width: 33%;">
+          tab3
+        </div>
+        <div class="fm-tabs-bar-underline" style="width: 33%; left: 66%;"></div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="fm-tabs-content-wrap fm-tabs-content-wrap-animated"
+    style="touch-action: pan-x pan-y;transform: translate3d(-200%, 0px, 1px);"
+  >
+    <div class="fm-tabs-content fm-tabs-content-inactive">
+      <div>
+        Content of first tab
+      </div>
+    </div>
+    <div class="fm-tabs-content fm-tabs-content-inactive">
+      <div>
+        Content of second tab
+      </div>
+    </div>
+    <div class="fm-tabs-content fm-tabs-content-active">
+      <div>
+        Content of third tab
+      </div>
+    </div>
+  </div>
+</div>

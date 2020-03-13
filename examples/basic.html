@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>basic.js - example - @gem-mine/rmc-tabs@1.2.0</title>
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="https://a.alipayobjects.com/normalize.css/3.0.1/normalize.css" rel="stylesheet"/>
+  <style>
+    .highlight pre {
+      padding: .8em 1em;
+      font: 14px/20px Consolas, Monaco, 'Andale Mono', monospace;
+      border: 1px solid #e5e8ec;
+      border-radius: 3px;
+      background-color: #21221d;
+      background-image: -webkit-linear-gradient(#21221d 50%, #272822 50%);
+      background-image: -moz-linear-gradient(#21221d 50%, #272822 50%);
+      background-image: -ms-linear-gradient(#21221d 50%, #272822 50%);
+      background-image: -o-linear-gradient(#21221d 50%, #272822 50%);
+      background-image: linear-gradient(#21221d 50%, #272822 50%);
+      background-size: 40px 40px;
+      background-origin: content-box;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .highlight pre > code {
+      font-family: inherit;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      vertical-align: 2px;
+      display: block;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #E5E5C2;
+    }
+  </style>
+  <style>
+/*
+
+Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #23241f;
+  -webkit-text-size-adjust: none;
+}
+
+.hljs,
+.hljs-tag,
+.css .hljs-rule,
+.css .hljs-value,
+.aspectj .hljs-function,
+.css .hljs-function
+.hljs-preprocessor,
+.hljs-pragma {
+  color: #f8f8f2;
+}
+
+.hljs-strongemphasis,
+.hljs-strong,
+.hljs-emphasis {
+  color: #a8a8a2;
+}
+
+.hljs-bullet,
+.hljs-blockquote,
+.hljs-horizontal_rule,
+.hljs-number,
+.hljs-regexp,
+.alias .hljs-keyword,
+.hljs-literal,
+.hljs-hexcolor {
+  color: #ae81ff;
+}
+
+.hljs-code,
+.hljs-title,
+.css .hljs-class,
+.hljs-class .hljs-title:last-child {
+  color: #a6e22e;
+  /*color: #e6db74;*/
+}
+
+.hljs-link_url {
+  font-size: 80%;
+}
+
+.hljs-strong,
+.hljs-strongemphasis {
+  font-weight: bold;
+}
+
+.hljs-emphasis,
+.hljs-strongemphasis,
+.hljs-class .hljs-title:last-child,
+.hljs-typename {
+  font-style: italic;
+}
+
+.hljs-keyword,
+.ruby .hljs-class .hljs-keyword:first-child,
+.ruby .hljs-function .hljs-keyword,
+.hljs-function,
+.hljs-change,
+.hljs-winutils,
+.hljs-flow,
+.nginx .hljs-title,
+.tex .hljs-special,
+.hljs-header,
+.hljs-symbol,
+.hljs-symbol .hljs-string,
+.hljs-tag .hljs-title,
+.hljs-value,
+.alias .hljs-keyword:first-child,
+.css .hljs-tag,
+.css .unit,
+.css .hljs-important {
+  color: #f92672;
+}
+
+.hljs-function .hljs-keyword,
+.hljs-class .hljs-keyword:first-child,
+.hljs-aspect .hljs-keyword:first-child,
+.hljs-constant,
+.hljs-typename,
+.hljs-name,
+.css .hljs-attribute {
+  color: #66d9ef;
+}
+
+.hljs-variable,
+.hljs-params,
+.hljs-class .hljs-title,
+.hljs-aspect .hljs-title {
+  color: #f8f8f2;
+}
+
+.hljs-tag .hljs-value,
+.hljs-string,
+.css .hljs-id,
+.hljs-subst,
+.hljs-type,
+.ruby .hljs-class .hljs-parent,
+.django .hljs-template_tag,
+.django .hljs-variable,
+.smalltalk .hljs-class,
+.django .hljs-filter .hljs-argument,
+.smalltalk .hljs-localvars,
+.smalltalk .hljs-array,
+.hljs-attr_selector,
+.hljs-pseudo,
+.hljs-addition,
+.hljs-stream,
+.hljs-envvar,
+.apache .hljs-tag,
+.apache .hljs-cbracket,
+.tex .hljs-command,
+.hljs-prompt,
+.hljs-link_label,
+.hljs-link_url {
+  color: #e6db74;
+}
+
+.hljs-comment,
+.hljs-annotation,
+.hljs-decorator,
+.hljs-pi,
+.hljs-doctype,
+.hljs-deletion,
+.hljs-shebang,
+.apache .hljs-sqbracket,
+.tex .hljs-formula {
+  color: #75715e;
+}
+
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata,
+.xml .php,
+.php .xml {
+  opacity: 0.5;
+}
+/***********/
+.hljs-attribute{
+  color: #a6e22e;
+}
+/***** node keyword ******/
+.hljs-built_in{
+  color: #3396dc;
+  font-weight: bold;
+}
+  </style>
+  <style>
+    .container {
+      width: 86%;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .header p {
+      color: #666;
+    }
+
+    .example {
+      padding: 20px 0;
+    }
+  </style>
+
+  <script>
+    // Console-polyfill. MIT license.
+    // https://github.com/paulmillr/console-polyfill
+    // Make it safe to do console.log() always.
+    (function (global) {
+      'use strict';
+      global.console = global.console || {};
+      var con = global.console;
+      var prop, method;
+      var empty = {};
+      var dummy = function () {
+      };
+      var properties = 'memory'.split(',');
+      var methods = ('assert,clear,count,debug,dir,dirxml,error,exception,group,' +
+      'groupCollapsed,groupEnd,info,log,markTimeline,profile,profiles,profileEnd,' +
+      'show,table,time,timeEnd,timeline,timelineEnd,timeStamp,trace,warn').split(',');
+      while (prop = properties.pop()) con[prop] = con[prop] || empty;
+      while (method = methods.pop()) con[method] = con[method] || dummy;
+    })(typeof window === 'undefined' ? this : window);
+    // Using `this` for web workers while maintaining compatibility with browser
+    // targeted script loaders such as Browserify or Webpack where the only way to
+    // get to the global object is via `window`.
+  </script>
+  <!--[if lt IE 9]>
+  <script src="https://a.alipayobjects.com/??es5-shim/4.0.5/es5-shim.js,es5-shim/4.0.5/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js"></script>
+  <![endif]-->
+  <script src="https://as.alipayobjects.com/g/component/??modernizr/2.8.3/modernizr.js,fastclick/1.0.6/fastclick.js"></script>
+  <script>
+  if(!window.Promise) {
+    document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
+  }
+  </script>
+  <link rel="stylesheet" href="basic.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>@gem-mine/rmc-tabs@1.2.0</h1>
+
+      <p>React Mobile Tabs Component(mobile web)</p>
+    </div>
+    <div class="example" id="__react-content"></div>
+
+    <div class="highlight"><pre><code language="js"><span class="hljs-keyword">import</span> <span class="hljs-string">'@gem-mine/rmc-tabs/assets/index.css'</span>
+<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>
+<span class="hljs-keyword">import</span> Tabs <span class="hljs-keyword">from</span> <span class="hljs-string">'../src'</span>
+const TabPane = Tabs.TabPane
+
+class Inner extends React.Component&lt;any, any&gt; {
+  state = {
+    now: Date.now()
+  }
+
+  componentDidMount() {
+    console.log(<span class="hljs-string">'mounted'</span>, this.props.data)
+  }
+
+  handleClick = () =&gt; {
+    const n = Date.now()
+    this.setState({
+      now: n
+    })
+  }
+
+  render() {
+    console.log(<span class="hljs-string">'render'</span>, this.props.data)
+    return (
+      &lt;div&gt;
+        &lt;p onClick={this.handleClick}&gt;点击更新：{this.state.now}&lt;/p&gt;
+        &lt;p&gt;hello, {this.props.data}&lt;/p&gt;
+        &lt;p&gt;床前明月光&lt;/p&gt;
+        &lt;p&gt;疑是地上霜&lt;/p&gt;
+        &lt;p&gt;举头望明月&lt;/p&gt;
+        &lt;p&gt;低头思故乡&lt;/p&gt;
+        &lt;p&gt;床前明月光2&lt;/p&gt;
+        &lt;p&gt;疑是地上霜&lt;/p&gt;
+        &lt;p&gt;举头望明月&lt;/p&gt;
+        &lt;p&gt;低头思故乡&lt;/p&gt;
+        &lt;p&gt;床前明月光3&lt;/p&gt;
+        &lt;p&gt;疑是地上霜&lt;/p&gt;
+        &lt;p&gt;举头望明月&lt;/p&gt;
+        &lt;p&gt;低头思故乡&lt;/p&gt;
+        &lt;p&gt;床前明月光4&lt;/p&gt;
+        &lt;p&gt;疑是地上霜&lt;/p&gt;
+        &lt;p&gt;举头望明月&lt;/p&gt;
+        &lt;p&gt;低头思故乡&lt;/p&gt;
+        &lt;p&gt;床前明月光5&lt;/p&gt;
+        &lt;p&gt;疑是地上霜&lt;/p&gt;
+        &lt;p&gt;举头望明月&lt;/p&gt;
+        &lt;p&gt;低头思故乡&lt;/p&gt;
+        &lt;p&gt;床前明月光6&lt;/p&gt;
+        &lt;p&gt;疑是地上霜&lt;/p&gt;
+        &lt;p&gt;举头望明月&lt;/p&gt;
+        &lt;p&gt;低头思故乡&lt;/p&gt;
+        &lt;p&gt;床前明月光7&lt;/p&gt;
+        &lt;p&gt;疑是地上霜&lt;/p&gt;
+        &lt;p&gt;举头望明月&lt;/p&gt;
+        &lt;p&gt;低头思故乡&lt;/p&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+
+class BasicDemo extends React.Component&lt;{}, any&gt; {
+  constructor(props: any) {
+    super(props)
+
+    this.state = {
+      current: 1
+    }
+  }
+
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;div&gt;
+          &lt;h2&gt;基本使用&lt;/h2&gt;
+          &lt;div&gt;
+            &lt;Tabs
+              defaultActiveKey={<span class="hljs-string">'xx'</span>}
+              onChange={(now, prev) =&gt; {
+                console.log(<span class="hljs-string">'change'</span>, now, prev)
+              }}
+            &gt;
+              &lt;TabPane
+                title=<span class="hljs-string">"first"</span>
+                onClick={tab =&gt; {
+                  console.log(<span class="hljs-string">'1111'</span>, tab)
+                }}
+              &gt;
+                first tab content
+              &lt;/TabPane&gt;
+              &lt;TabPane key=<span class="hljs-string">"xx"</span> title=<span class="hljs-string">"second"</span>&gt;
+                second tab content
+              &lt;/TabPane&gt;
+              &lt;TabPane title=<span class="hljs-string">"third"</span>&gt;third tab content&lt;/TabPane&gt;
+            &lt;/Tabs&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;h2&gt;纵向&lt;/h2&gt;
+          &lt;div style={{ height: 150 }}&gt;
+            &lt;Tabs position=<span class="hljs-string">"left"</span>&gt;
+              &lt;TabPane title=<span class="hljs-string">"first"</span>&gt;first tab content&lt;/TabPane&gt;
+              &lt;TabPane title=<span class="hljs-string">"second"</span>&gt;second tab content&lt;/TabPane&gt;
+              &lt;TabPane title=<span class="hljs-string">"third"</span>&gt;third tab content&lt;/TabPane&gt;
+            &lt;/Tabs&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;h2&gt;bottom&lt;/h2&gt;
+          &lt;div&gt;
+            &lt;Tabs position=<span class="hljs-string">"bottom"</span>&gt;
+              &lt;TabPane title=<span class="hljs-string">"first"</span>&gt;first tab content&lt;/TabPane&gt;
+              &lt;TabPane title=<span class="hljs-string">"second"</span>&gt;second tab content&lt;/TabPane&gt;
+              &lt;TabPane title=<span class="hljs-string">"third"</span>&gt;third tab content&lt;/TabPane&gt;
+            &lt;/Tabs&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;h2&gt;没有动画&lt;/h2&gt;
+          &lt;div&gt;
+            &lt;Tabs animated={false}&gt;
+              &lt;TabPane title=<span class="hljs-string">"first"</span>&gt;first tab content&lt;/TabPane&gt;
+              &lt;TabPane title=<span class="hljs-string">"second"</span>&gt;second tab content&lt;/TabPane&gt;
+              &lt;TabPane title=<span class="hljs-string">"third"</span>&gt;third tab content&lt;/TabPane&gt;
+            &lt;/Tabs&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;h2&gt;非受控，外部切换 tab&lt;/h2&gt;
+          &lt;button
+            onClick={() =&gt; {
+              this.tabs.gotoTab(2)
+            }}
+          &gt;
+            切换到第 3 个 tab
+          &lt;/button&gt;
+          &lt;Tabs ref={ref =&gt; (this.tabs = ref)}&gt;
+            &lt;TabPane title=<span class="hljs-string">"first"</span>&gt;first tab content&lt;/TabPane&gt;
+            &lt;TabPane title=<span class="hljs-string">"second"</span>&gt;second tab content&lt;/TabPane&gt;
+            &lt;TabPane title=<span class="hljs-string">"third"</span>&gt;third tab content&lt;/TabPane&gt;
+          &lt;/Tabs&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;h2&gt;受控，外部切换 tab&lt;/h2&gt;
+          &lt;button
+            onClick={() =&gt; {
+              this.setState({ current: 0 })
+            }}
+          &gt;
+            切换到第 1 个 tab
+          &lt;/button&gt;
+          &lt;button
+            onClick={() =&gt; {
+              this.setState({ current: 2 })
+            }}
+          &gt;
+            切换到第 3 个 tab
+          &lt;/button&gt;
+          &lt;Tabs current={this.state.current}&gt;
+            &lt;TabPane title=<span class="hljs-string">"first"</span>&gt;first tab content&lt;/TabPane&gt;
+            &lt;TabPane title=<span class="hljs-string">"second"</span>&gt;second tab content&lt;/TabPane&gt;
+            &lt;TabPane title=<span class="hljs-string">"third"</span>&gt;third tab content&lt;/TabPane&gt;
+          &lt;/Tabs&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;h2&gt;横向 tab 很多&lt;/h2&gt;
+          &lt;Tabs pageSize={4}&gt;
+            &lt;TabPane title=<span class="hljs-string">"first"</span>&gt;first tab content&lt;/TabPane&gt;
+            &lt;TabPane title=<span class="hljs-string">"second"</span>&gt;second tab content&lt;/TabPane&gt;
+            &lt;TabPane title=<span class="hljs-string">"third"</span>&gt;third tab content&lt;/TabPane&gt;
+            &lt;TabPane title=<span class="hljs-string">"forth"</span>&gt;forth tab content&lt;/TabPane&gt;
+            &lt;TabPane title=<span class="hljs-string">"fifth"</span>&gt;fifth tab content&lt;/TabPane&gt;
+            &lt;TabPane title=<span class="hljs-string">"sixth"</span>&gt;sixth tab content&lt;/TabPane&gt;
+            &lt;TabPane title=<span class="hljs-string">"seventh"</span>&gt;seventh tab content&lt;/TabPane&gt;
+            &lt;TabPane title=<span class="hljs-string">"eighth"</span>&gt;eigth tab content&lt;/TabPane&gt;
+            &lt;TabPane title=<span class="hljs-string">"nineth"</span>&gt;nineth tab content&lt;/TabPane&gt;
+            &lt;TabPane title=<span class="hljs-string">"tenth"</span>&gt;tenth tab content&lt;/TabPane&gt;
+          &lt;/Tabs&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;h2&gt;sticky&lt;/h2&gt;
+          &lt;Tabs sticky&gt;
+            &lt;TabPane title=<span class="hljs-string">"first"</span>&gt;
+              &lt;div&gt;
+                &lt;p&gt;内容很长1&lt;/p&gt;
+                &lt;p&gt;内容很长2&lt;/p&gt;
+                &lt;p&gt;内容很长3&lt;/p&gt;
+                &lt;p&gt;内容很长4&lt;/p&gt;
+                &lt;p&gt;内容很长5&lt;/p&gt;
+                &lt;p&gt;内容很长6&lt;/p&gt;
+                &lt;p&gt;内容很长7&lt;/p&gt;
+                &lt;p&gt;内容很长8&lt;/p&gt;
+                &lt;p&gt;内容很长9&lt;/p&gt;
+                &lt;p&gt;内容很长10&lt;/p&gt;
+                &lt;p&gt;内容很长11&lt;/p&gt;
+                &lt;p&gt;内容很长12&lt;/p&gt;
+                &lt;p&gt;内容很长13&lt;/p&gt;
+                &lt;p&gt;内容很长14&lt;/p&gt;
+                &lt;p&gt;内容很长15&lt;/p&gt;
+                &lt;p&gt;内容很长16&lt;/p&gt;
+                &lt;p&gt;内容很长17&lt;/p&gt;
+                &lt;p&gt;内容很长18&lt;/p&gt;
+                &lt;p&gt;内容很长19&lt;/p&gt;
+                &lt;p&gt;内容很长20&lt;/p&gt;
+                &lt;p&gt;内容很长21&lt;/p&gt;
+                &lt;p&gt;内容很长22&lt;/p&gt;
+                &lt;p&gt;内容很长23&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/TabPane&gt;
+            &lt;TabPane title=<span class="hljs-string">"second"</span>&gt;
+              &lt;p&gt; 春眠不觉晓 1&lt;/p&gt;
+              &lt;p&gt; 处处闻啼鸟&lt;/p&gt;
+              &lt;p&gt; 夜来风雨声&lt;/p&gt;
+              &lt;p&gt; 花落知多少&lt;/p&gt;
+              &lt;p&gt; 春眠不觉晓 2&lt;/p&gt;
+              &lt;p&gt; 处处闻啼鸟&lt;/p&gt;
+              &lt;p&gt; 夜来风雨声&lt;/p&gt;
+              &lt;p&gt; 花落知多少&lt;/p&gt;
+              &lt;p&gt; 春眠不觉晓 3&lt;/p&gt;
+              &lt;p&gt; 处处闻啼鸟&lt;/p&gt;
+              &lt;p&gt; 夜来风雨声&lt;/p&gt;
+              &lt;p&gt; 花落知多少&lt;/p&gt;
+              &lt;p&gt; 春眠不觉晓 4&lt;/p&gt;
+              &lt;p&gt; 处处闻啼鸟&lt;/p&gt;
+              &lt;p&gt; 夜来风雨声&lt;/p&gt;
+              &lt;p&gt; 花落知多少&lt;/p&gt;
+              &lt;p&gt; 春眠不觉晓 5&lt;/p&gt;
+              &lt;p&gt; 处处闻啼鸟&lt;/p&gt;
+              &lt;p&gt; 夜来风雨声&lt;/p&gt;
+              &lt;p&gt; 春眠不觉晓 6&lt;/p&gt;
+              &lt;p&gt; 处处闻啼鸟&lt;/p&gt;
+              &lt;p&gt; 夜来风雨声&lt;/p&gt;
+              &lt;p&gt; 花落知多少&lt;/p&gt;
+            &lt;/TabPane&gt;
+            &lt;TabPane title=<span class="hljs-string">"third"</span>&gt;
+              &lt;p&gt; 千山鸟飞绝 1&lt;/p&gt;
+              &lt;p&gt; 万径人踪灭&lt;/p&gt;
+              &lt;p&gt; 孤舟蓑笠翁&lt;/p&gt;
+              &lt;p&gt; 独钓寒江雪&lt;/p&gt;
+              &lt;p&gt; 千山鸟飞绝 2&lt;/p&gt;
+              &lt;p&gt; 万径人踪灭&lt;/p&gt;
+              &lt;p&gt; 孤舟蓑笠翁&lt;/p&gt;
+              &lt;p&gt; 独钓寒江雪&lt;/p&gt;
+              &lt;p&gt; 千山鸟飞绝 3&lt;/p&gt;
+              &lt;p&gt; 万径人踪灭&lt;/p&gt;
+              &lt;p&gt; 孤舟蓑笠翁&lt;/p&gt;
+              &lt;p&gt; 独钓寒江雪&lt;/p&gt;
+              &lt;p&gt; 千山鸟飞绝 4&lt;/p&gt;
+              &lt;p&gt; 万径人踪灭&lt;/p&gt;
+              &lt;p&gt; 孤舟蓑笠翁&lt;/p&gt;
+              &lt;p&gt; 独钓寒江雪&lt;/p&gt;
+              &lt;p&gt; 千山鸟飞绝 5&lt;/p&gt;
+              &lt;p&gt; 万径人踪灭&lt;/p&gt;
+              &lt;p&gt; 孤舟蓑笠翁&lt;/p&gt;
+              &lt;p&gt; 独钓寒江雪&lt;/p&gt;
+              &lt;p&gt; 千山鸟飞绝 6&lt;/p&gt;
+              &lt;p&gt; 万径人踪灭&lt;/p&gt;
+              &lt;p&gt; 孤舟蓑笠翁&lt;/p&gt;
+              &lt;p&gt; 独钓寒江雪&lt;/p&gt;
+            &lt;/TabPane&gt;
+          &lt;/Tabs&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;h2&gt;嵌套 tabs，子级 tabs swipe 到 第一个/最后 可以切换上级 tabs&lt;/h2&gt;
+          &lt;div&gt;
+            &lt;Tabs&gt;
+              &lt;TabPane title=<span class="hljs-string">"外层1"</span>&gt;
+                &lt;Tabs&gt;
+                  &lt;TabPane title=<span class="hljs-string">"内层1-1"</span>&gt;
+                    &lt;p&gt; 春眠不觉晓&lt;/p&gt;
+                    &lt;p&gt; 处处闻啼鸟&lt;/p&gt;
+                    &lt;p&gt; 夜来风雨声&lt;/p&gt;
+                    &lt;p&gt; 花落知多少&lt;/p&gt;
+                  &lt;/TabPane&gt;
+                  &lt;TabPane title=<span class="hljs-string">"内层1-2"</span>&gt;
+                    &lt;p&gt; 锄禾日当午&lt;/p&gt;
+                    &lt;p&gt; 汗滴禾下土&lt;/p&gt;
+                    &lt;p&gt; 谁知盘中餐&lt;/p&gt;
+                    &lt;p&gt; 粒粒皆辛苦&lt;/p&gt;
+                  &lt;/TabPane&gt;
+                  &lt;TabPane title=<span class="hljs-string">"内层1-3"</span>&gt;
+                    &lt;p&gt; 山中相送罢&lt;/p&gt;
+                    &lt;p&gt; 日暮掩柴扉&lt;/p&gt;
+                    &lt;p&gt; 春草明年绿&lt;/p&gt;
+                    &lt;p&gt; 王孙归不归&lt;/p&gt;
+                  &lt;/TabPane&gt;
+                  &lt;TabPane title=<span class="hljs-string">"内层1-4"</span>&gt;
+                    &lt;p&gt; 千山鸟飞绝&lt;/p&gt;
+                    &lt;p&gt; 万径人踪灭&lt;/p&gt;
+                    &lt;p&gt; 孤舟蓑笠翁&lt;/p&gt;
+                    &lt;p&gt; 独钓寒江雪&lt;/p&gt;
+                  &lt;/TabPane&gt;
+                &lt;/Tabs&gt;
+              &lt;/TabPane&gt;
+              &lt;TabPane title=<span class="hljs-string">"外层2"</span>&gt;
+                &lt;Tabs&gt;
+                  &lt;TabPane title=<span class="hljs-string">"内层2-1"</span>&gt;
+                    &lt;p&gt; 独在异乡为异客&lt;/p&gt;
+                    &lt;p&gt; 每逢佳节倍思亲&lt;/p&gt;
+                    &lt;p&gt; 遥知兄弟登高处&lt;/p&gt;
+                    &lt;p&gt; 遍插茱萸少一人&lt;/p&gt;
+                  &lt;/TabPane&gt;
+                  &lt;TabPane title=<span class="hljs-string">"内层2-2"</span>&gt;
+                    &lt;Tabs&gt;
+                      &lt;TabPane title=<span class="hljs-string">"内层2-2-1"</span>&gt;
+                        &lt;p&gt; 变态的三层嵌套 - 1&lt;/p&gt;
+                        &lt;p&gt; 变态的三层嵌套 - 1&lt;/p&gt;
+                        &lt;p&gt; 变态的三层嵌套 - 1&lt;/p&gt;
+                        &lt;p&gt; 变态的三层嵌套 - 1&lt;/p&gt;
+                        &lt;p&gt; 变态的三层嵌套 - 1&lt;/p&gt;
+                        &lt;p&gt; 变态的三层嵌套 - 1&lt;/p&gt;
+                      &lt;/TabPane&gt;
+                      &lt;TabPane title=<span class="hljs-string">"内层2-2-2"</span>&gt;
+                        &lt;p&gt; 变态的三层嵌套 - 2&lt;/p&gt;
+                        &lt;p&gt; 变态的三层嵌套 - 2&lt;/p&gt;
+                        &lt;p&gt; 变态的三层嵌套 - 2&lt;/p&gt;
+                        &lt;p&gt; 变态的三层嵌套 - 2&lt;/p&gt;
+                        &lt;p&gt; 变态的三层嵌套 - 2&lt;/p&gt;
+                        &lt;p&gt; 变态的三层嵌套 - 2&lt;/p&gt;
+                      &lt;/TabPane&gt;
+                      &lt;TabPane title=<span class="hljs-string">"内层2-2-3"</span>&gt;
+                        &lt;p&gt; 变态的三层嵌套 - 3&lt;/p&gt;
+                        &lt;p&gt; 变态的三层嵌套 - 3&lt;/p&gt;
+                        &lt;p&gt; 变态的三层嵌套 - 3&lt;/p&gt;
+                        &lt;p&gt; 变态的三层嵌套 - 3&lt;/p&gt;
+                        &lt;p&gt; 变态的三层嵌套 - 3&lt;/p&gt;
+                        &lt;p&gt; 变态的三层嵌套 - 3&lt;/p&gt;
+                      &lt;/TabPane&gt;
+                    &lt;/Tabs&gt;
+                  &lt;/TabPane&gt;
+                &lt;/Tabs&gt;
+              &lt;/TabPane&gt;
+              &lt;TabPane title=<span class="hljs-string">"外层3"</span>&gt;
+                &lt;p&gt; 远上寒山石径斜&lt;/p&gt;
+                &lt;p&gt; 白云生处有人家&lt;/p&gt;
+                &lt;p&gt; 停车坐爱枫林晚&lt;/p&gt;
+                &lt;p&gt; 霜叶红于二月花&lt;/p&gt;
+              &lt;/TabPane&gt;
+            &lt;/Tabs&gt;
+          &lt;/div&gt;
+
+          &lt;div&gt;
+            &lt;Tabs sticky&gt;
+              &lt;TabPane title=<span class="hljs-string">"first"</span>&gt;
+                &lt;Inner data=<span class="hljs-string">"xxx"</span> /&gt;
+              &lt;/TabPane&gt;
+              &lt;TabPane title=<span class="hljs-string">"second"</span>&gt;
+                &lt;Inner data=<span class="hljs-string">"yyy"</span> /&gt;
+              &lt;/TabPane&gt;
+              &lt;TabPane title=<span class="hljs-string">"third"</span>&gt;
+                &lt;Inner data=<span class="hljs-string">"zzz"</span> /&gt;
+              &lt;/TabPane&gt;
+            &lt;/Tabs&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+
+ReactDOM.render(&lt;BasicDemo /&gt;, document.getElementById(<span class="hljs-string">'__react-content'</span>))
+</code></pre></div>
+  </div>
+  <a href="">
+    <img style="position: absolute; top: 0; right: 0; border: 0;"
+         src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
+         alt="Fork me on GitHub"
+         data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+  </a>
+  <script>FastClick.attach(document.body);</script>
+  <script src="common.js?nowrap"></script>
+  <script src="basic.js?nowrap"></script>
+</body>
+
+</html>
